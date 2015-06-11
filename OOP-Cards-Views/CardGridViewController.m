@@ -28,10 +28,24 @@
         }
     }
     
-    UIImageView *card1 = self.cardsCollection[0];
-    UIImageView *card2 = self.cardsCollection[1];
+    NSUInteger xPosistion = 20;
+    NSUInteger yPosistion = 20;
+    for (NSUInteger i=0; i<self.cardsCollection.count; i++) {
+        if (xPosistion > 300) {
+            xPosistion = 20;
+            yPosistion += 128;
+        }
+        CGRect cardPosistion = CGRectMake(xPosistion, yPosistion, 80, 108);
+        UIImageView *card = self.cardsCollection[i];
+        card.frame = cardPosistion;
+        xPosistion += 100;
+    }
+    
+    
+    
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
